@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+    <title>First Task</title>
+</head>
+<body>
+    <h1 id="demo"></h1>
+    <script>
+          let sortedArr = [5, 6, 9, 11, 22];
+          let number = 9;
+          let end = sortedArr.length - 1;
+          let result = binarySearch(sortedArr, 0, end, number);
+
+          if (result === -1){
+            document.getElementById("demo").innerHTML = "No such number was found"; 
+          }else{
+            document.getElementById("demo").innerHTML = "The number you are looking for is at index " + result; 
+          }
+
+          function binarySearch(arr, start, end, number){
+            let mid = Math.floor((start + end)/2);
+             if(arr[mid] === number){
+                return mid;
+             }else if(arr[mid] < number){
+                return binarySearch(arr, mid+1, end, number);
+             }else{
+                return binarySearch(arr, start, mid-1, number);
+             }
+            return -1;
+          }
+          
+          
+          // document.getElementById("demo").innerHTML = "result"; 
+    </script>
+</body>
+</html>
